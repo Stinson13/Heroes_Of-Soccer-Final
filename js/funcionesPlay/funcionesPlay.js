@@ -116,6 +116,7 @@ function esperaAtaque() {
             } else {
                 // Si no tiene el oponente cartas sobre el campo se ataca al entrenador si fue habilitado
                 if (jugador2.getEntrenador().getHabilitaAtaque()) {
+                    showTextQuitaVida(carta.getNombre(), carta.getAtaque());
                     atacaEntrenador(jugador2.getEntrenador(), carta);
                 }
             }
@@ -177,6 +178,7 @@ function atacar(partida, cartaJug1, cartaJug2) {
         opcion = 3;
         cartaJug1.setHabilitaAtaque(false);
         cartaJug1.setDisponible(false);
+        showTextDepCarta(nomCarta1, nomCarta2);
     }
 
     if (opcion == 1 || opcion == 2 ) {

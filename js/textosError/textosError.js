@@ -94,7 +94,7 @@ function showTextDepCarta(nomCarta1, nomCarta2) {
 function showTextQuitaVida(nomCarta, numVida) {
 
     var style = style = { font: "bold 32px Verdana", fill: "white", boundsAlignH: "center", boundsAlignV: "middle" };
-    var text = game.add.text(300, 200, nomCarta + " te ha quitado " + numVida + " de vida", style);
+    var text = game.add.text(300, 200, nomCarta + " ha quitado " + numVida + " de vida", style);
     text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
     setTimeout(function(){

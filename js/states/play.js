@@ -47,8 +47,7 @@ var playState = {
             botonesManoJug1[i] = game.add.button(posX, posY, partida.getJugador1().manoIndexOf(i).getNombreFoto(), sacarCartaListener, 
                 {
                     contexto: this,
-                    cartaAñadir: partida.getJugador1().manoIndexOf(i), 
-                    jugadorPartida: partida.getJugador1()
+                    cartaAñadir: partida.getJugador1().manoIndexOf(i)
                 }, 2, 1, 0);
             botonesManoJug1[i].scale.setTo(0.2, 0.2);
             botonesManoJug1[i].onInputOver.add(over, {param1: this, param2: botonesManoJug1[i]});
@@ -62,8 +61,7 @@ var playState = {
             botonesMazoJug1[i] = game.add.button(1020, 350, 'dorsoCarta', obtenerCartaListener,
                 {   
                     contexto: this,
-                    cartaAñadir: partida.getJugador1().mazoIndexOf(i),
-                    jugadorPartida: partida.getJugador1()
+                    cartaAñadir: partida.getJugador1().mazoIndexOf(i)
                 }, 2, 1, 0);
             botonesMazoJug1[i].scale.setTo(0.45, 0.45);
         }
@@ -102,12 +100,7 @@ var playState = {
 
         // Mazo restante
         for (i = 0; i < partida.getJugador2().mazoLength(); i++) {
-            botonesMazoJug2[i] = game.add.button(1020, 15, 'dorsoCarta', obtenerCartaListener,
-                {   
-                    contexto: this,
-                    cartaAñadir: partida.getJugador2().mazoIndexOf(i),
-                    jugadorPartida: partida.getJugador2()
-                }, 2, 1, 0);
+            botonesMazoJug2[i] = game.add.button(1020, 15, 'dorsoCarta', null, this, 2, 1, 0);
             botonesMazoJug2[i].scale.setTo(0.45, 0.45);
             botonesMazoJug2[i].inputEnabled = false;
         }
@@ -197,13 +190,13 @@ function obtenerCartaListener() {
     }
 
     // Comprobar que no haya mas de 5 cartas en mano
-    if (this.jugadorPartida.manoLength() == 5) {
+    if (partida.getJugador1().manoLength() == 5) {
         // Aviso tiene 5 cartas en mano
         addText(6);
         return;
     }
 
-    obtenerCarta(partida, this.jugadorPartida, this.cartaAñadir);
+    obtenerCarta(partida, partida.getJugador1(), this.cartaAñadir);
 }
 
 function sacarCartaListener() {
@@ -215,19 +208,19 @@ function sacarCartaListener() {
     }
 
     // Comprobamos que no haya mas de 7 jugadores en campo
-    if (this.jugadorPartida.campoLength() == 7) {
+    if (partida.getJugador1().campoLength() == 7) {
         // Aviso 7 cartas en campo
         addText(7);
         return;
     }
 
-    if (this.cartaAñadir.getAtaque() > this.jugadorPartida.getManaBalones()) {
+    if (this.cartaAñadir.getAtaque() > partida.getJugador1().getManaBalones()) {
         // Aviso mana insuficiente
         addText(8);
         return;
     }
 
-    sacarCartaACampo(partida, this.jugadorPartida, this.cartaAñadir);   
+    sacarCartaACampo(partida, partida.getJugador1(), this.cartaAñadir);   
 }
 
 function over() {
