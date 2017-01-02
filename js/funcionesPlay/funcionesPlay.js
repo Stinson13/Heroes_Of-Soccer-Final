@@ -65,7 +65,7 @@ function terminarTurno(partida) {
         botonEndTurn.inputEnabled = true;
 
         // Paso de turno
-        //addText(0);
+        addText(0);
     }
 }
 
@@ -77,14 +77,14 @@ function esperaAtaque() {
     // Termina partida
     // TODO: caso de empate
     if (!jugador1.getEntrenador().getVida()) {
-        //showGanador(1);
+        showGanador(1);
         setTimeout(function(){
             // Recarga el juego al completo para recuperar variables globales iniciales
             document.location.href = document.location.href;
         }, 2000);
         return
     } else if (!jugador2.getEntrenador().getVida()) {
-        //showGanador(0);
+        showGanador(0);
         setTimeout(function(){
             // Recarga el juego al completo para recuperar variables globales iniciales
             document.location.href = document.location.href;
@@ -125,21 +125,26 @@ function esperaAtaque() {
 
 function atacaEntrenador(entrenador, cartaJug) {
 
-    var vidaOld = entrenador.getVida(); 
-
     entrenador.restarVida(cartaJug.getAtaque());
 
-    if (!partida.getTurnoJugador()) {
-        for (i = vidaOld; i > entrenador.getVida(); i--) {
-            vidaJug2[i].kill();
-            vidaJug2.splice(i, 1);
-        }
+    var vida = "vida" + entrenador.getVida();
 
-    } else {
-        for (i = vidaOld; i > entrenador.getVida(); i--) {
-            vidaJug1[i].kill();
-            vidaJug1.splice(i, 1);
-        }
+    while (true) {
+        if (!partida.getTurnoJugador()) {
+            if (vida != vidaJug2[vidaJug2.length - 1].key) {
+                vidaJug2[vidaJug2.length - 1].kill();
+                vidaJug2.splice(vidaJug2.length - 1, 1);
+            } else {
+                break;
+            }
+        } else {
+            if (vida != vidaJug1[vidaJug1.length - 1].key) {
+                vidaJug1[vidaJug1.length - 1].kill();
+                vidaJug1.splice(vidaJug1.length - 1, 1);
+            } else {
+                break;
+            }
+        }   
     }
 
     entrenador.setHabilitaAtaque(false);
@@ -160,13 +165,13 @@ function atacar(partida, cartaJug1, cartaJug2) {
     if (ataqCartaJug1 == ataqCartaJug2) {
         // Eliminar ambas
         opcion = 1;
-        //showTextDepCarta(nomCarta2, nomCarta1);
+        showTextDepCarta(nomCarta2, nomCarta1);
     } else if (ataqCartaJug1 < ataqCartaJug2) {
         // Eliminar cartaJug1
         opcion = 2;
         cartaJug2.setHabilitaAtaque(false);
         cartaJug2.setDisponible(false);
-        //showTextDepCarta(nomCarta2, nomCarta1);
+        showTextDepCarta(nomCarta2, nomCarta1);
     } else {
         // Eliminar cartaJug2
         opcion = 3;

@@ -122,10 +122,10 @@ var playState = {
         if (partida.getTurnoJugador()) {
             botonEndTurn.inputEnabled = false;
             // Comienza jugando la máquina
-            //addText(3);
+            addText(3);
             juegaMaquina(partida);
         } else {
-            //addText(0);
+            addText(0);
         }
 
         game.time.events.loop(1000, esperaAtaque, this);
@@ -151,12 +151,12 @@ function atacarListener() {
 
         } else {
             // Aviso carta no disponible
-            //addText(1);
+            addText(1);
             return;
         }
     } else {
         // Aviso debe esperar a su turno
-        //addText(2);
+        addText(2);
         return;
     }
 }
@@ -168,7 +168,7 @@ function habilitaAtaqueListener() {
         // No se puede atacar al entrenador si el oponente tiene cartas sobre el campo
         if (this.carta.getNombreFoto() == partida.getJugador2().getEntrenador().getNombreFoto() &&
             partida.getJugador2().campoLength() > 0) {
-            //addText(4);
+            addText(4);
             return;
 
         } else {
@@ -177,7 +177,7 @@ function habilitaAtaqueListener() {
 
     } else {
         // Aviso debes esperar a tu turno
-        //addText(2);
+        addText(2);
         return;
     }
 }
@@ -186,20 +186,20 @@ function obtenerCartaListener() {
     // Comprobar que sea el turno del jugador
     if (partida.getTurnoJugador()) {
         // Aviso debes esperar a tu turno
-        //addText(2);
+        addText(2);
         return;
     }
 
     if (!partida.getPuedeRobar()) {
         // Aviso ya robaste carta este turno
-        //addText(5);
+        addText(5);
         return;
     }
 
     // Comprobar que no haya mas de 5 cartas en mano
     if (this.jugadorPartida.manoLength() == 5) {
         // Aviso tiene 5 cartas en mano
-        //addText(6);
+        addText(6);
         return;
     }
 
@@ -210,20 +210,20 @@ function sacarCartaListener() {
     // Comprobar que sea el turno del jugador
     if (partida.getTurnoJugador()) {
         // Aviso debes esperar a tu turno
-        //addText(2);
+        addText(2);
         return;
     }
 
     // Comprobamos que no haya mas de 7 jugadores en campo
     if (this.jugadorPartida.campoLength() == 7) {
         // Aviso 7 cartas en campo
-        //addText(7);
+        addText(7);
         return;
     }
 
     if (this.cartaAñadir.getAtaque() > this.jugadorPartida.getManaBalones()) {
         // Aviso mana insuficiente
-        //addText(8);
+        addText(8);
         return;
     }
 

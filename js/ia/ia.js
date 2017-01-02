@@ -43,7 +43,7 @@ function juegaMaquina(partida) {
                     }
                 } else {
                     if (jugador.campoIndexOf(i).getDisponible()) {
-                        //showTextQuitaVida(jugador.campoIndexOf(i).getNombre(), jugador.campoIndexOf(i).getAtaque());
+                        showTextQuitaVida(jugador.campoIndexOf(i).getNombre(), jugador.campoIndexOf(i).getAtaque());
                         atacaEntrenador(partida.getJugador1().getEntrenador(), jugador.campoIndexOf(i));
                     }
                 }
@@ -52,7 +52,7 @@ function juegaMaquina(partida) {
             // En caso de que no tenga ninguna carta el oponente, se ataca al entrenador con cada carta del campo
             for (var i = 0; i < jugador.campoLength(); i++) {
                 if (jugador.campoIndexOf(i).getDisponible()) {
-                    //showTextQuitaVida(jugador.campoIndexOf(i).getNombre(), jugador.campoIndexOf(i).getAtaque());
+                    showTextQuitaVida(jugador.campoIndexOf(i).getNombre(), jugador.campoIndexOf(i).getAtaque());
                     atacaEntrenador(partida.getJugador1().getEntrenador(), jugador.campoIndexOf(i));
                 }
             }
