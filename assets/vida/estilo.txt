@@ -1,0 +1,17 @@
+Font: Vollkorn
+Bold: true
+Size: 30
+Color= white
+Text shadow: true
+Distance to text: 1
+Color: black
+Size: adapted to text
+Horizontal padding: 10
+Vertical padding: 9
+Style: round box
+Background: unicolored
+Color: red
+Bubble effect: true
+Border: true
+Size: 1
+Color: blue
