@@ -12,7 +12,7 @@ function cartaJugador(nombre, equipo, posicion, ataque, nombre_foto) {
 }
 
 function getAtaque() {
-	return this.ataque;
+	return parseInt(this.ataque);
 }
 
 function getDisponible() {

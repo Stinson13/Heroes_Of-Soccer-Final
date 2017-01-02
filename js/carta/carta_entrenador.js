@@ -13,8 +13,8 @@ function getVida() {
 }
 
 function restarVida(restaVida) {
-	if ((this.vida - restaVida) >= 0) {
-		this.vida -= restaVida;
+	if ((this.vida - parseInt(restaVida)) >= 0) {
+		this.vida -= parseInt(restaVida);
 	} else {
 		this.vida = 0;
 	}

@@ -20,6 +20,8 @@ function terminarTurno(partida) {
         partida.setPuedeRobar(true);
 
         // Establece disponibilidad de carta para el siguiente turno y la habilitación para el ataque
+        partida.getJugador1().getEntrenador().setHabilitaAtaque(false);
+
         for (var i = 0; i < partida.getJugador1().campoLength(); i++) {
             partida.getJugador1().campoIndexOf(i).setDisponible(true);
             partida.getJugador1().campoIndexOf(i).setHabilitaAtaque(false);
@@ -49,6 +51,8 @@ function terminarTurno(partida) {
         }
 
         // Establece disponibilidad de carta para el siguiente turno
+        partida.getJugador2().getEntrenador().setHabilitaAtaque(false);
+
         for (var i = 0; i < partida.getJugador2().campoLength(); i++) {
             partida.getJugador2().campoIndexOf(i).setDisponible(true);
             partida.getJugador2().campoIndexOf(i).setHabilitaAtaque(false);
@@ -61,7 +65,7 @@ function terminarTurno(partida) {
         botonEndTurn.inputEnabled = true;
 
         // Paso de turno
-        addText(0);
+        //addText(0);
     }
 }
 
@@ -73,43 +77,46 @@ function esperaAtaque() {
     // Termina partida
     // TODO: caso de empate
     if (!jugador1.getEntrenador().getVida()) {
-        showGanador(1);
+        //showGanador(1);
         setTimeout(function(){
-            game.state.start('menu');
+            // Recarga el juego al completo para recuperar variables globales iniciales
+            document.location.href = document.location.href;
         }, 2000);
         return
     } else if (!jugador2.getEntrenador().getVida()) {
-        showGanador(0);
+        //showGanador(0);
         setTimeout(function(){
-            game.state.start('menu');
+            // Recarga el juego al completo para recuperar variables globales iniciales
+            document.location.href = document.location.href;
         }, 2000);
         return
     }
 
-    var jugHabilitado = false;
+    var carta = null;
 
     if (!partida.getTurnoJugador()) {
         // Busca la carta del campo del jugador1 que fue habilitado para que ataque
         for (var i = 0; i < jugador1.campoLength(); i++) {
-            if (jugador1.campoIndexOf(i).getHabilitaAtaque() && jugador1.campoIndexOf(i).getDisponible()) {
-                jugHabilitado = true;
+            if (jugador1.campoIndexOf(i).getHabilitaAtaque() && 
+                jugador1.campoIndexOf(i).getDisponible()) {
+                carta = jugador1.campoIndexOf(i);
                 break;
             }
         }
 
-        if (jugHabilitado) {
+        if (carta != null) {
             if (jugador2.campoLength()) {
                 // Busca la carta del campo del jugador2 que fue seleccionada para ser atacada y ataca
                 for (var i = 0; i < jugador2.campoLength(); i++) {
                     if (jugador2.campoIndexOf(i).getHabilitaAtaque()) {
-                        atacar(partida, jugador1.campoIndexOf(i), jugador2.campoIndexOf(i));
+                        atacar(partida, carta, jugador2.campoIndexOf(i));
                         break;
                     }
                 }
             } else {
                 // Si no tiene el oponente cartas sobre el campo se ataca al entrenador si fue habilitado
                 if (jugador2.getEntrenador().getHabilitaAtaque()) {
-                    atacaEntrenador(jugador2.getEntrenador(), jugador1.campoIndexOf(i));
+                    atacaEntrenador(jugador2.getEntrenador(), carta);
                 }
             }
         }
@@ -147,17 +154,19 @@ function atacar(partida, cartaJug1, cartaJug2) {
 
     var nomCarta1 = cartaJug1.getNombre();
     var nomCarta2 = cartaJug2.getNombre();
+    var ataqCartaJug1 = cartaJug1.getAtaque();
+    var ataqCartaJug2 = cartaJug2.getAtaque();
 
-    if (cartaJug1.getAtaque() == cartaJug2.getAtaque()) {
+    if (ataqCartaJug1 == ataqCartaJug2) {
         // Eliminar ambas
         opcion = 1;
-        showTextDepCarta(nomCarta2, nomCarta1);
-    } else if (cartaJug1.getAtaque() < cartaJug2.getAtaque()) {
+        //showTextDepCarta(nomCarta2, nomCarta1);
+    } else if (ataqCartaJug1 < ataqCartaJug2) {
         // Eliminar cartaJug1
         opcion = 2;
         cartaJug2.setHabilitaAtaque(false);
         cartaJug2.setDisponible(false);
-        showTextDepCarta(nomCarta2, nomCarta1);
+        //showTextDepCarta(nomCarta2, nomCarta1);
     } else {
         // Eliminar cartaJug2
         opcion = 3;
