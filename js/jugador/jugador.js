@@ -5,21 +5,46 @@ function Jugador() {
 	this.manaBalones = 1;
     this.manaBalonesTot = 1;
 
-	var rand = Math.floor((Math.random() * equipos.length));
-	this.entrenador = game.global.entrenadores[rand];
-    this.mazo = new Array ();
+	if (game.global.conMazoCreado == 0) {
+        
+        var rand = Math.floor((Math.random() * equipos.length));
+        this.entrenador = game.global.entrenadores[rand];
+        this.mazo = new Array ();
 
-	var i;
+        var i;
 
-	for (i = 0; i < this.maxCartasMazo; i++) {
-		var jugador = Math.floor((Math.random() * game.global.jugadores.length));
+        for (i = 0; i < this.maxCartasMazo; i++) {
+            var jugador = Math.floor((Math.random() * game.global.jugadores.length));
 
-		if (this.mazo.indexOf(game.global.jugadores[jugador]) != -1) {
-            i--;
-		} else {
-            this.mazo.push(game.global.jugadores[jugador]);
-		}
-	}
+            if (this.mazo.indexOf(game.global.jugadores[jugador]) != -1) {
+                i--;
+            } else {
+                this.mazo.push(game.global.jugadores[jugador]);
+            }
+        }
+        
+    } else {
+
+        this.entrenador = new cartaEntrenador(game.global.nombreEntrenadorMazo, equipos[0], game.global.nombreEntrenadorMazo);
+        this.mazo = new Array ();
+
+        var i;
+
+        for (i = 0; i < this.maxCartasMazo; i++) {
+            
+            var str = posicionesLibresCrearMazo[i].split("_");
+            carta =  new cartaJugador(str[0], equipos[0], str[1], str[2], posicionesLibresCrearMazo[i]);
+
+            if (this.mazo.indexOf(carta) != -1) {
+                i--;
+            } else {
+                this.mazo.push(carta);
+            }
+        }
+        
+        game.global.conMazoCreado = 0;
+        
+    }
     
 	this.mano = new Array();
 

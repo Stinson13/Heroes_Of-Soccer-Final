@@ -2,6 +2,8 @@ var crearEquiposState = {
     
     create: function() {
         
+        game.global.pulsado = -1;
+        
         imgFondo = game.add.image(0, 0, 'imgMenu');
         imgFondo.scale.setTo(0.6, 0.5);
         
@@ -19,15 +21,21 @@ var crearEquiposState = {
         lega.scale.setTo(0.8, 0.7);
         
         rm = game.add.button(390, 350, 'rm_sprite_sheet', modoCrearRM, this, 2, 1, 0);
-        rm.scale.setTo(0.76, 0.7);
+        rm.scale.setTo(0.8, 0.7);
         
-        aMenu = game.add.button(390, 450, 'volver2_sprite_sheet', volverMenuJugar, this, 2, 1, 0);
-        aMenu.scale.setTo(0.8, 0.65);
+        entrena = game.add.button(390, 400, 'entrena_sprite_sheet', modoCrearEntrena, this, 2, 1, 0);
+        entrena.scale.setTo(0.8, 0.7);
+        
+        aMenu = game.add.button(270, 500, 'volver_sprite_sheet', volverMenuJugar, this, 2, 1, 0);
+        aMenu.scale.setTo(0.8, 0.7);
+        
+        terminar = game.add.button(530, 500, 'terminar_sprite_sheet', terminarEquipo, this, 2, 1, 0);
+        terminar.scale.setTo(0.8, 0.7);
         
         imgMarco = game.add.image(972, 0, 'imgCrearMarco');
         imgMarco.scale.setTo(0.305, 0.4617);
         
-        //pintarLista();
+        pintarLista();
 
     }
 };
@@ -50,4 +58,8 @@ function modoCrearLega () {
 function modoCrearRM () {
     game.global.pulsado = 0;
 	game.state.start('crearMazo');
+}
+
+function modoCrearEntrena () {
+	game.state.start('crearMazoEntrenador');
 }

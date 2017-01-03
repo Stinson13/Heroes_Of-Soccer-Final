@@ -44,17 +44,18 @@ var loadState = {
 		
 		// Botones
 // buttons: https://dabuttonfactory.com/
-		game.load.spritesheet('jugar_sprite_sheet', game.global.ASSETS + 'botones/jugar_sprite_sheet.png', 287, 48);
-		game.load.spritesheet('reglas_sprite_sheet', game.global.ASSETS + 'botones/reglas_sprite_sheet.png', 287, 46);
+		game.load.spritesheet('jugar_sprite_sheet', game.global.ASSETS + 'botones/jugar_sprite_sheet.png', 286, 46);
+		game.load.spritesheet('reglas_sprite_sheet', game.global.ASSETS + 'botones/reglas_sprite_sheet.png', 286, 46);
 		game.load.spritesheet('creditos_sprite_sheet', game.global.ASSETS + 'botones/creditos_sprite_sheet.png', 286, 46);
-        game.load.spritesheet('rm_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_rm.png', 300, 46);
+        game.load.spritesheet('rm_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_rm.png', 286, 46);
         game.load.spritesheet('atm_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_atletico.png', 317, 46);
-        game.load.spritesheet('bcn_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_bcn.png', 287, 46);
+        game.load.spritesheet('bcn_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_bcn.png', 286, 46);
         game.load.spritesheet('lega_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_lega.png', 286, 46);
-        game.load.spritesheet('volver2_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_volver.png', 287, 46);
-		game.load.spritesheet('volver_sprite_sheet', game.global.ASSETS + 'botones/volver_sprite_sheet.png', 287, 48);
-        game.load.spritesheet('define_tu_mazo', game.global.ASSETS + 'botones/define_tu_mazo.png', 285, 48);
-        game.load.spritesheet('mazo_aleatorio', game.global.ASSETS + 'botones/mazo_aleatorio.png', 286, 48);
+        game.load.spritesheet('volver_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_volver.png', 286, 46);
+        game.load.spritesheet('define_tu_mazo', game.global.ASSETS + 'botones/define_tu_mazo.png', 286, 46);
+        game.load.spritesheet('entrena_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_entrena.png', 286, 46);
+        game.load.spritesheet('terminar_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_terminar.png', 286, 46);
+        game.load.spritesheet('mazo_aleatorio', game.global.ASSETS + 'botones/mazo_aleatorio.png', 286, 46);
         game.load.image('end_turn', game.global.ASSETS + 'botones/end_turn.png');
         game.load.image('rueda_sistema', game.global.ASSETS + 'botones/rueda_sistema.png');
 
