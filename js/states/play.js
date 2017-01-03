@@ -127,7 +127,7 @@ var playState = {
 
 function mostrarPanelTerminarJuego () {
     if (confirm("¿Seguro que quieres salir del juego?") == true) {
-        game.state.start('menu');
+        document.location.href = document.location.href;
     }
 }
 
