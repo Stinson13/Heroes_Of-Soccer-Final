@@ -2,6 +2,8 @@
 var playState = {
     
     create: function() {
+        music.pause();
+        
         // Cambiar por otra imagen de fondo
         imgMenu = game.add.image(0, 0, 'imgMenu');
         imgMenu.scale.setTo(0.6, 0.5);

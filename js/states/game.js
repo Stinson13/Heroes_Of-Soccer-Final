@@ -13,7 +13,9 @@ game.global = {
     botonesQuitarCarta: -1,
     posicionesOcupadasCrearMazo: new Array (),
     nombreEntrenadorMazo: "",
-    conMazoCreado: 0
+    conMazoCreado: 0,
+    music: null,
+    audio: true
 };
 
 this.posicionesX = [

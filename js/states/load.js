@@ -56,8 +56,10 @@ var loadState = {
         game.load.spritesheet('entrena_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_entrena.png', 286, 46);
         game.load.spritesheet('terminar_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_terminar.png', 286, 46);
         game.load.spritesheet('mazo_aleatorio', game.global.ASSETS + 'botones/mazo_aleatorio.png', 286, 46);
+        game.load.spritesheet('audio', game.global.ASSETS + 'botones/audio_spritesheet.png', 512, 512);
         game.load.image('end_turn', game.global.ASSETS + 'botones/end_turn.png');
         game.load.image('rueda_sistema', game.global.ASSETS + 'botones/rueda_sistema.png');
+
 
         // Vida
         for (i = 0; i <= 30; i++) {
@@ -86,10 +88,13 @@ var loadState = {
         }   
 
         // Sounds
+        game.load.audio('himno', game.global.ASSETS + 'audio/' + 'UEFA_Champions_League.mp3');
     },
     
     create: function() {
-        
+        music = game.add.audio('himno');
+        music.play();
+
         // Go to the menu state
         game.state.start('menu');
     }
