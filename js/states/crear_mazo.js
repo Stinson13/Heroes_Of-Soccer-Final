@@ -2,7 +2,7 @@ var crearMazoState = {
     
     create: function() {
         
-        this.creadorMazo = new Array (game.global.maximoCartasEquipo);
+        this.creadorMazo = new Array (maximoCartasEquipo);
         
         imgFondo = game.add.image(0, 0, 'imgMenu');
         imgFondo.scale.setTo(0.6, 0.5);
@@ -22,13 +22,13 @@ var crearMazoState = {
         imgMarco = game.add.image(972, 0, 'imgCrearMarco');
         imgMarco.scale.setTo(0.305, 0.4617);
             
-        for (i = 0, j = 0; i < game.global.maximoCartasEquipo; i++) {
+        for (i = 0, j = 0; i < maximoCartasEquipo; i++) {
 
             if (((i % 8) == 0) && (i > 0)) {
                 j++;
             }
 
-            this.creadorMazo[i] = game.add.button(posicionesX[i%8], posicionesY[j], jugadores[game.global.pulsado][i], anadirAMazo, this, 2, 1, 0);
+            this.creadorMazo[i] = game.add.button(posicionesX[i%8], posicionesY[j], jugadores[pulsado][i], anadirAMazo, this, 2, 1, 0);
             this.creadorMazo[i].scale.setTo(0.3, 0.3);
             this.creadorMazo[i].onInputOver.add(over_crear_mazo);
             this.creadorMazo[i].onInputOut.add(out_crear_mazo);
@@ -52,10 +52,10 @@ function anadirAMazo (boton) {
     
     var posX;
     
-    if (game.global.botonesQuitarCarta < 29) {
+    if (botonesQuitarCarta < 29) {
         
-        game.global.nombresMazoCreado.push(boton.key);
-        game.global.botonesQuitarCarta++;
+        nombresMazoCreado.push(boton.key);
+        botonesQuitarCarta++;
         
         var str = boton.key.split("_");
         
@@ -86,7 +86,7 @@ function anadirAMazo (boton) {
 
 function pintarLista () {
     
-    for (i = 0; i <= game.global.botonesQuitarCarta; i ++) {
+    for (i = 0; i <= botonesQuitarCarta; i ++) {
         
         arrayTextos[i] = game.add.text(1020, arrayTextos[i].y, arrayTextos[i].text, {
                 font: 'Fancy',
@@ -100,13 +100,13 @@ function pintarLista () {
         arrayBotones[i] = boton1;
     }
     
-    entrenadorTexto = game.add.text(1020, 530, game.global.nombreEntrenadorMazo.toUpperCase(), {
+    entrenadorTexto = game.add.text(1020, 530, nombreEntrenadorMazo.toUpperCase(), {
             font: 'Fancy',
             fontSize: 16,
             fill: 'white'
         });
 
-    boton1 = game.add.button(1007, 533, game.global.nombreEntrenadorMazo, quitarEntrenador, this, 2, 1, 0);
+    boton1 = game.add.button(1007, 533, nombreEntrenadorMazo, quitarEntrenador, this, 2, 1, 0);
     boton1.scale.setTo(0.02, 0.02);
     boton1.onInputOver.add(over_crear_mazo);
     boton1.onInputOut.add(out_quitar_carta);
@@ -140,9 +140,9 @@ function quitarCarta (quitar) {
         i++;
     }
 
-    game.global.nombresMazoCreado.splice(quitar.key);
+    nombresMazoCreado.splice(quitar.key);
     
-    game.global.botonesQuitarCarta--;
+    botonesQuitarCarta--;
 }
 
 function over_crear_mazo(boton) {
@@ -158,12 +158,12 @@ function terminarEquipo() {
     alert(posicionesLibresCrearMazo[0]);
     alert(posicionesLibresCrearMazo[29]);
     
-    if (game.global.botonesQuitarCarta != 29) {
+    if (botonesQuitarCarta != 29) {
         alert("Para terminar el mazo tienes que tener 30 cartas");
-    } else if (game.global.nombreEntrenadorMazo == "") {
+    } else if (nombreEntrenadorMazo == "") {
         alert("Para terminar el mazo tienes que tener un entrenador");
     } else {
-        game.global.conMazoCreado = 1;
+        conMazoCreado = 1;
         game.state.start('play');
     }
 }

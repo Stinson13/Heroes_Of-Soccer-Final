@@ -2,7 +2,7 @@ var crearEquiposState = {
     
     create: function() {
         
-        game.global.pulsado = -1;
+        pulsado = -1;
         
         imgFondo = game.add.image(0, 0, 'imgMenu');
         imgFondo.scale.setTo(0.6, 0.5);
@@ -41,22 +41,22 @@ var crearEquiposState = {
 };
 
 function modoCrearAtM () {
-    game.global.pulsado = 1;
+    pulsado = 1;
 	game.state.start('crearMazo');
 }
 
 function modoCrearBcn () {
-    game.global.pulsado = 2;
+    pulsado = 2;
 	game.state.start('crearMazo');
 }
 
 function modoCrearLega () {
-    game.global.pulsado = 3;
+    pulsado = 3;
 	game.state.start('crearMazo');
 }
 
 function modoCrearRM () {
-    game.global.pulsado = 0;
+    pulsado = 0;
 	game.state.start('crearMazo');
 }
 
