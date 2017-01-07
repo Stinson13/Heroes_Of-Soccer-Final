@@ -2,7 +2,7 @@ var crearMazoEntrenadorState = {
     
     create: function() {
         
-        this.creadorMazo = new Array (partidamaximoCartasEquipo);
+        this.creadorMazo = new Array (maximoCartasEquipo);
         
         imgFondo = game.add.image(0, 0, 'imgMenu');
         imgFondo.scale.setTo(0.6, 0.5);
@@ -21,7 +21,7 @@ var crearMazoEntrenadorState = {
         imgMarco = game.add.image(972, 0, 'imgCrearMarco');
         imgMarco.scale.setTo(0.305, 0.4617);
             
-        for (i = 0, j = 0; i < partidamaximoCartasEquipo; i++) {
+        for (i = 0, j = 0; i < maximoCartasEquipo; i++) {
 
             if (((i % 8) == 0) && (i > 0)) {
                 j++;
@@ -49,11 +49,11 @@ function volverMenuJugar () {
 
 function anadirEntrenadorAMazo (boton) {
     
-    if (partidanombreEntrenadorMazo == "") {
+    if (nombreEntrenadorMazo == "") {
         
-        partidanombreEntrenadorMazo = boton.key;
+        nombreEntrenadorMazo = boton.key;
         
-        entrenadorTexto = game.add.text(1020, 530, partidanombreEntrenadorMazo.toUpperCase(), {
+        entrenadorTexto = game.add.text(1020, 530, nombreEntrenadorMazo.toUpperCase(), {
                 font: 'Fancy',
                 fontSize: 16,
                 fill: 'white'
@@ -72,8 +72,8 @@ function anadirEntrenadorAMazo (boton) {
 
 function quitarEntrenador (quitar) {
     
-    if (partidanombreEntrenadorMazo == quitar.key) {
-        partidanombreEntrenadorMazo = "";
+    if (nombreEntrenadorMazo == quitar.key) {
+        nombreEntrenadorMazo = "";
     }
         
     if (entrenadorTexto != null && 
