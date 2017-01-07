@@ -5,7 +5,7 @@ function Jugador() {
 	this.manaBalones = 1;
     this.manaBalonesTot = 1;
 
-	if (game.global.conMazoCreado == 0) {
+	if (conMazoCreado == 0) {
         
         var rand = Math.floor((Math.random() * equipos.length));
         this.entrenador = game.global.entrenadores[rand];
@@ -25,7 +25,7 @@ function Jugador() {
         
     } else {
 
-        this.entrenador = new cartaEntrenador(game.global.nombreEntrenadorMazo, equipos[0], game.global.nombreEntrenadorMazo);
+        this.entrenador = new cartaEntrenador(nombreEntrenadorMazo, equipos[0], nombreEntrenadorMazo);
         this.mazo = new Array ();
 
         var i;
@@ -42,7 +42,7 @@ function Jugador() {
             }
         }
         
-        game.global.conMazoCreado = 0;
+        conMazoCreado = 0;
         
     }
     
