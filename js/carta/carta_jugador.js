@@ -1,6 +1,5 @@
 function cartaJugador(nombre, equipo, posicion, ataque, nombre_foto) {
-    Carta.call(this, nombre, nombre_foto);
-    this.equipo = equipo;
+    Carta.call(this, nombre, nombre_foto, equipo);
     this.posicion = posicion;
     this.ataque = ataque;
     // Carta disponible para atacar. Disponible solo una vez por turno

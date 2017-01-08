@@ -61,6 +61,7 @@ var loadState = {
         game.load.spritesheet('audio', game.global.ASSETS + 'botones/audio_spritesheet.png', 512, 512);
         game.load.image('end_turn', game.global.ASSETS + 'botones/end_turn.png');
         game.load.image('rueda_sistema', game.global.ASSETS + 'botones/rueda_sistema.png');
+        game.load.image('document_button', game.global.ASSETS + 'botones/document_button.png');
 
 
         // Vida

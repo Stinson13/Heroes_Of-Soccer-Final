@@ -1,6 +1,7 @@
-function Carta(nombre, nombre_foto) {
+function Carta(nombre, nombre_foto, equipo) {
 	this.nombre = nombre;
 	this.nombre_foto = nombre_foto;
+	this.equipo = equipo;
 
 	// Habilita la carta para ser atacada
 	this.habilitaAtaque = false;
