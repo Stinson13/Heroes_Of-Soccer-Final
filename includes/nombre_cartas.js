@@ -2,7 +2,9 @@ this.equipos = [
 	'real_madrid',
 	'atletico',
 	'barcelona',
-    'leganes'
+    'leganes',
+    'las_palmas',
+    'deportivo'
 ];
 
 /* 
@@ -13,7 +15,9 @@ this.entrenadores = [
 	'zidane',
     'simeone',
     'lenrique',
-    'garitano'
+    'garitano',
+    'setien',
+    'ggaritano'
 ];
 
 // Real Madrid
@@ -122,6 +126,61 @@ this.jugadores = [
                     'szymanowski_mc_4',
                     'timor_mc_4',
                     'ulopez_mc_3'
+                ],
+
+                //Las Palmas
+                [
+                	'araujo_dl_3',
+                    'aythami_df_4',
+                    'bigas_df_5',
+                    'boateng_mc_5',
+                    'dcastellano_df_3',
+                    'dgarcia_df_4',
+                    'dsimon_df_4',
+                    'elzhar_mc_4',
+                    'hernan_mc_3',
+                    'hlopes_df_3',
+                    'jcastellano_mc_3',
+                    'jviera_mc_6',
+                    'lemos_df_4',
+                    'livaja_dl_4',
+                    'lizoain_pt_3',
+                    'macedo_df_4',
+                    'mgarcia_mc_2',
+                    'mmo_mc_3',
+                    'montoro_mc_3',
+                    'rmesa_mc_6',
+                    'tana_dl_4',
+                    'tyronne_mc_3',
+                    'varas_pt_5',
+                    'vgomez_mc_5'
+                ],
+
+                //Deportivo
+                [
+                	'albentosa_df_4',
+                    'andone_dl_4',
+                    'arribas_df_4',
+                    'bergantiños_mc_3',
+                    'bgama_mc_4',
+                    'bvalle_mc_3',
+                    'cborges_mc_4',
+                    'cgil_mc_4',
+                    'ecolak_mc_5',
+                    'fajr_mc_4',
+                    'fnavarro_df_4',
+                    'guilherme_mc_4',
+                    'joselu_dl_4',
+                    'juanfranm_mc_4',
+                    'laure_df_3',
+                    'luisinho_df_4',
+                    'lux_pt_4',
+                    'mmoreno_dl_3',
+                    'mosquera_mc_5',
+                    'ogarcia_mc_2',
+                    'rmartinez_pt_3',
+                    'sidenei_df_5',
+                    'tyton_pt_4'
                 ]];
 
 var i;
