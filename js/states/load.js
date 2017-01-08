@@ -51,6 +51,8 @@ var loadState = {
         game.load.spritesheet('atm_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_atletico.png', 317, 46);
         game.load.spritesheet('bcn_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_bcn.png', 286, 46);
         game.load.spritesheet('lega_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_lega.png', 286, 46);
+        game.load.spritesheet('depor_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_depor.png', 286, 46);
+        game.load.spritesheet('las_palmas_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_las_palmas.png', 286, 46);
         game.load.spritesheet('volver_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_volver.png', 286, 46);
         game.load.spritesheet('define_tu_mazo', game.global.ASSETS + 'botones/define_tu_mazo.png', 286, 46);
         game.load.spritesheet('entrena_sprite_sheet', game.global.ASSETS + 'botones/spritesheet_entrena.png', 286, 46);
