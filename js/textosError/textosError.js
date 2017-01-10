@@ -8,6 +8,9 @@
     6 -> Aviso 5 cartas en mano
     7 -> Aviso 7 cartas en campo
     8 -> Aviso mana insuficiente
+    9 -> Aviso mazo creado ya tiene 30 cartas
+    10 -> Aviso fin de crear mazo, 30 cartas necesarias
+    11 -> Aviso fin de crear mazo, entrenador necesario
 */
 function addText(typeMessagge) {
     var text;
@@ -64,6 +67,21 @@ function addText(typeMessagge) {
         case 8:
             style = style = { font: "bold 40px Verdana", fill: "white", boundsAlignH: "center", boundsAlignV: "middle" };
             text = game.add.text(370, 270, "¡Mana insuficiente!", style);
+            text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+            break;
+        case 9:
+            style = style = { font: "bold 40px Verdana", fill: "white", boundsAlignH: "center", boundsAlignV: "middle" };
+            text = game.add.text(150, 270, "Tu mazo ha llegado al límite de cartas.", style);
+            text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+            break;
+        case 10:
+            style = style = { font: "bold 40px Verdana", fill: "white", boundsAlignH: "center", boundsAlignV: "middle" };
+            text = game.add.text(150, 270, "Tienes que seleccionar 30 cartas.", style);
+            text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+            break;
+        case 11:
+            style = style = { font: "bold 40px Verdana", fill: "white", boundsAlignH: "center", boundsAlignV: "middle" };
+            text = game.add.text(150, 270, "Tienes que seleccionar un entrenador.", style);
             text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
             break;
     }
