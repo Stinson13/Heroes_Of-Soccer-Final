@@ -80,7 +80,7 @@ function anadirAMazo (boton) {
         arrayBotones.push(boton1);        
         
     } else {
-        alert("Tu mazo ha llegado al límite de cartas.");
+        addText(9);
     }  
 }
 
@@ -155,13 +155,10 @@ function out_crear_mazo(boton) {
 
 function terminarEquipo() {
     
-    alert(posicionesLibresCrearMazo[0]);
-    alert(posicionesLibresCrearMazo[29]);
-    
     if (botonesQuitarCarta != 29) {
-        alert("Para terminar el mazo tienes que tener 30 cartas");
+        addText(10);
     } else if (nombreEntrenadorMazo == "") {
-        alert("Para terminar el mazo tienes que tener un entrenador");
+        addText(11);
     } else {
         conMazoCreado = 1;
         game.state.start('play');
